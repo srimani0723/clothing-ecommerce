@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductById } from "../Redux/productsSlice";
 import { addToLocalCart } from "../Redux/cartSlice";
 
-function ProductDetail() {
+function ProductDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const {
@@ -93,4 +93,4 @@ function ProductDetail() {
   );
 }
 
-export default ProductDetail;
+export default ProductDetails;
