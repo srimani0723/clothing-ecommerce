@@ -58,6 +58,13 @@ exports.loginUser = async (req, res) => {
     const user = await User.findOne({ email });
     if (!user) return res.status(401).json({ message: "Invalid credentials" });
 
+    if (user.active)
+      return res
+        .status(401)
+        .json({
+          message: "Try to login another time or already login another",
+        });
+
     const match = await bcrypt.compare(password, user.password);
     if (!match) return res.status(401).json({ message: "Invalid credentials" });
 
